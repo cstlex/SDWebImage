@@ -10,6 +10,8 @@
 
 @interface UIImage (GIF)
 
++ (float)sd_frameDurationAtIndex:(NSUInteger)index source:(CGImageSourceRef)source;
+
 + (UIImage *)sd_animatedGIFNamed:(NSString *)name;
 
 + (UIImage *)sd_animatedGIFWithData:(NSData *)data;

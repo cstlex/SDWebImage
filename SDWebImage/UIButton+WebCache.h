@@ -199,6 +199,8 @@
  */
 - (void)sd_cancelBackgroundImageLoadForState:(UIControlState)state;
 
+- (NSMutableDictionary *)imageURLStorage;
+
 @end
 
 
