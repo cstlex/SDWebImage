@@ -26,6 +26,11 @@
  */
 - (NSURL *)sd_imageURLForState:(UIControlState)state;
 
+- (void)sd_setCurrentImageURL:(NSURL *)imageUrl;
+
+- (BOOL)sd_isImageGif;
+- (void)sd_setImageGif:(BOOL)isGif;
+
 /**
  * Set the imageView `image` with an `url`.
  *

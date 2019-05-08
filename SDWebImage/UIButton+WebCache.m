@@ -11,6 +11,7 @@
 #import "UIView+WebCacheOperation.h"
 
 static char imageURLStorageKey;
+static char isGifKey;
 
 @implementation UIButton (WebCache)
 
@@ -22,6 +23,22 @@ static char imageURLStorageKey;
     }
 
     return url;
+}
+
+- (void)sd_setCurrentImageURL:(NSURL *)imageUrl {
+    if (imageUrl){
+        self.imageURLStorage[@(self.state)] = imageUrl;
+    } else {
+        [self.imageURLStorage removeObjectForKey:@(self.state)];
+    }
+}
+
+- (BOOL)sd_isImageGif {
+    return [(NSNumber *)objc_getAssociatedObject(self, &isGifKey) boolValue];
+}
+
+- (void)sd_setImageGif:(BOOL)isGif {
+    objc_setAssociatedObject(self, &isGifKey, [NSNumber numberWithBool:isGif], OBJC_ASSOCIATION_RETAIN);
 }
 
 - (NSURL *)sd_imageURLForState:(UIControlState)state {
